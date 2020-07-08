@@ -26,6 +26,7 @@
                       </label>
                       <i data-feather="user" class="fea icon-sm icons"></i>
                       <input
+                        v-model="formData.name"
                         name="name"
                         id="name"
                         type="text"
@@ -48,6 +49,7 @@
                         type="email"
                         class="form-control pl-5"
                         placeholder="Email :"
+                        v-model="formData.email"
                       />
                     </div>
                   </div>
@@ -76,6 +78,7 @@
                         rows="4"
                         class="form-control pl-5"
                         placeholder="Votre message:"
+                        v-model="formData.message"
                       ></textarea>
                     </div>
                   </div>
