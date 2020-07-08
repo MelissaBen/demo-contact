@@ -8,8 +8,10 @@
             <div class="custom-form mt-4">
               <div id="message"></div>
               <form
-                name="contact-form"
+                name="contact"
                 id="contact-form"
+                action="/success/"
+                v-on:submit.prevent="handleSubmit"
                 method="post"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
