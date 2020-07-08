@@ -20,7 +20,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group position-relative">
-                      <label>
+                      <label for="name" class="label">
                         Nom
                         <span class="text-danger">*</span>
                       </label>
