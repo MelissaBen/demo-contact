@@ -9,14 +9,14 @@
               <div id="message"></div>
               <form
                 name="contact"
+                method="post"
                 id="contact-form"
                 action="/success/"
                 v-on:submit.prevent="handleSubmit"
-                method="post"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
               >
-                <input type="hidden" name="form-name" value="contactForm" />
+                <input type="hidden" name="form-name" value="contact" />
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group position-relative">
