@@ -142,6 +142,7 @@ export default {
         })
       })
         .then(() => {
+          showDismissibleAlert = true;
           // this.notifiy('Votre message est envoyé')
           this.$router.push("/");
         })
