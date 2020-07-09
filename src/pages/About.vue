@@ -75,10 +75,10 @@
                 <!--button submit -->
                 <div class="row">
                   <div class="col-sm-12 text-center">
-                    <b-button
+                    <button
                       @click="showDismissibleAlert=true"
                       class="submitBnt btn btn-primary btn-block"
-                    >Envoyer</b-button>
+                    >Envoyer</button>
                     <div id="simple-msg"></div>
                   </div>
                   <!--end col-->
