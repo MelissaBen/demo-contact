@@ -5,7 +5,7 @@
         <div class="card shadow rounded border-0">
           <div class="card-body py-5">
             <h4 class="card-title">Get In Touch !</h4>
-            <h1>test1</h1>
+            <h1>test2</h1>
 
             <div class="custom-form mt-4">
               <div id="message"></div>
@@ -163,6 +163,9 @@ export default {
       })
         .then(() => {
           this.ShowText();
+          {
+            this.callbackText();
+          }
           // this.notifiy('Votre message est envoyé')
           this.$router.push("/");
         })
