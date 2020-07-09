@@ -5,6 +5,7 @@
         <div class="card shadow rounded border-0">
           <div class="card-body py-5">
             <h4 class="card-title">Get In Touch !</h4>
+            <h1>ok</h1>
             <div class="custom-form mt-4">
               <div id="message"></div>
               <form
@@ -20,7 +21,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group position-relative">
-                      <label for="name" class="label">
+                      <label>
                         Nom
                         <span class="text-danger">*</span>
                       </label>
@@ -44,26 +45,12 @@
                       </label>
                       <i data-feather="mail" class="fea icon-sm icons"></i>
                       <input
+                        v-model="formData.email"
                         name="email"
                         id="email"
                         type="email"
                         class="form-control pl-5"
                         placeholder="Email :"
-                        v-model="formData.email"
-                      />
-                    </div>
-                  </div>
-                  <!--end col-->
-                  <div class="col-md-12">
-                    <div class="form-group position-relative">
-                      <label>Subject</label>
-                      <i data-feather="book" class="fea icon-sm icons"></i>
-                      <input
-                        name="subject"
-                        id="subject"
-                        type="text"
-                        class="form-control pl-5"
-                        placeholder="Subject"
                       />
                     </div>
                   </div>
@@ -73,7 +60,7 @@
                       <label>Message</label>
                       <i data-feather="message-circle" class="fea icon-sm icons"></i>
                       <textarea
-                        name="comments"
+                        name="message"
                         id="comments"
                         rows="4"
                         class="form-control pl-5"
@@ -88,8 +75,10 @@
                 <!--button submit -->
                 <div class="row">
                   <div class="col-sm-12 text-center">
-                    <button>Envoyer</button>
-
+                    <b-button
+                      @click="showDismissibleAlert=true"
+                      class="submitBnt btn btn-primary btn-block"
+                    >Envoyer</b-button>
                     <div id="simple-msg"></div>
                   </div>
                   <!--end col-->
@@ -104,24 +93,38 @@
       </div>
       <!--end col-->
 
+      <div class="col-lg-7 col-md-6 order-1 order-md-2">
+        <div class="card border-0">
+          <div class="card-body p-0"></div>
+        </div>
+      </div>
       <!--end col-->
     </div>
     <!--end row-->
   </div>
   <!--end container-->
 </template>
-
 <script>
 export default {
   metaInfo: {
-    title: "About us"
+    title: "ContactForm"
   },
   data() {
     return {
-      formData: {}
+      formData: {},
+      dismissSecs: 10,
+      dismissCountDown: 0,
+      showDismissibleAlert: false
     };
   },
   methods: {
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    },
+
     encode(data) {
       return Object.keys(data)
         .map(
@@ -138,7 +141,10 @@ export default {
           ...this.formData
         })
       })
-        .then(() => this.$router.push("/success"))
+        .then(() => {
+          // this.notifiy('Votre message est envoyé')
+          this.$router.push("/");
+        })
         .catch(error => alert(error));
     }
   }
